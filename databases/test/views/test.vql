@@ -1,0 +1,27 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC test
+    DATASOURCENAME=postgres
+    SCHEMANAME='${databases.test.views.jdbc.test.SCHEMANAME}' 
+    RELATIONNAME='test' 
+    OUTPUTSCHEMA (
+        number = 'number' :'java.lang.String' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='1', sourcetypeid='1', sourcetypename='bpchar')  SORTABLE,
+        numbers = 'numbers' :'java.lang.Long' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='-5', sourcetypename='int8')  SORTABLE
+    );
+
+CREATE OR REPLACE TABLE test I18N au_cst (
+        number:text (sourcetypeid = '1', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '1'), 
+        numbers:long (sourcetypeid = '-5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '19')
+    )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD test(
+        I18N au_cst
+        CONSTRAINTS (
+             ADD number (any) OPT ANY
+             ADD numbers (any) OPT ANY
+        )
+        OUTPUTLIST (number, numbers
+        )
+        WRAPPER (jdbc test)
+    );
+

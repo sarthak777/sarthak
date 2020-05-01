@@ -1,0 +1,19 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE DATASOURCE CUSTOM denodo_excel
+    CLASSNAME='com.denodo.vdb.contrib.wrapper.xls.ExcelWrapper';
+
+CREATE OR REPLACE WRAPPER CUSTOM denodo_excel
+    DATASOURCENAME=denodo_excel
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '${databases.test.views.custom.denodo_excel.File location.ROUTE.LOCAL.PATH}',
+      'Extract data from all sheets' = false,
+      'Extract sheet name as a new column' = false,
+      'Has headers' = false,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        column_0 = 'Column_0' : 'java.lang.String' (OPT) (sourcetypeid='12')  SORTABLE,
+        column_1 = 'Column_1' : 'java.lang.String' (OPT) (sourcetypeid='12')  SORTABLE
+    );
+

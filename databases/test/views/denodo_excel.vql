@@ -1,0 +1,17 @@
+﻿CREATE OR REPLACE TABLE denodo_excel I18N au_cst (
+        column_0:text (sourcetypeid = '12'), 
+        column_1:text (sourcetypeid = '12')
+    )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD denodo_excel(
+        I18N au_cst
+        CONSTRAINTS (
+             ADD column_0 (any) OPT ANY
+             ADD column_1 (any) OPT ANY
+        )
+        OUTPUTLIST (column_0, column_1
+        )
+        WRAPPER (custom denodo_excel)
+    );
+

@@ -1,0 +1,4 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE DATASOURCE XML xml
+    ROUTE LOCAL 'LocalConnection' '${databases.test.datasources.xml.xml.ROUTE.LOCAL.PATH}';
+

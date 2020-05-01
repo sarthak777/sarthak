@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW denodo_excel_j_postgres_denodo AS SELECT denodo_excel.column_0 AS column_0, denodo_excel.column_1 AS column_1, postgres_denodo.number AS number FROM denodo_excel AS denodo_excel INNER JOIN postgres_denodo AS postgres_denodo ON denodo_excel.column_1 = postgres_denodo.number ;
+
+ALTER VIEW denodo_excel_j_postgres_denodo
+ LAYOUT (denodo_excel = [20, 20, 220, 66], postgres_denodo = [510, 110, 250, 46]);
+

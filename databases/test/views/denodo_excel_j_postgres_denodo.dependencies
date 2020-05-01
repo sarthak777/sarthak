@@ -1,0 +1,4 @@
+﻿/databases/test/datasources/custom/denodo_excel.vql
+/databases/test/views/denodo_excel.vql
+/databases/test/datasources/jdbc/postgres.vql
+/databases/test/views/postgres_denodo.vql
