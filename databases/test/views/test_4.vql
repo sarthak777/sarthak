@@ -8,7 +8,7 @@ CREATE OR REPLACE WRAPPER JDBC test
         numbers = 'numbers' :'java.lang.Long' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='19', sourcetypeid='-5', sourcetypename='int8')  SORTABLE
     );
 
-CREATE OR REPLACE TABLE test I18N au_cst (
+CREATE OR REPLACE TABLE test_4 I18N au_cst (
         number:text (sourcetypeid = '1', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '1'), 
         numbers:long (sourcetypeid = '-5', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '19')
     )
